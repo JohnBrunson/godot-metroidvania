@@ -6,29 +6,26 @@ var next_state : PlayerState
 
 #region /// state references
 # Reference to all other states
+@onready var idle: PlayerStateIdle = %Idle
+@onready var run: PlayerStateRun = %Run
 
 #endregion
 # Template for every state that a state should do.
 
 # What happens when this state is initialized?
 func init() -> void:
-	#print ("init! ", name)
 	pass
 
 # What happens when we enter this state?
 func enter() -> void:
-	#print ("enter: ", name)
 	pass
 
 # What happens when we exit this state?
 func exit() -> void:
-	#print ("exit: ", name)
 	pass
 
 # What happens when an input is pressed?
 func handle_input( _event : InputEvent ) -> PlayerState:
-	#if _event.is_action_pressed("jump"):
-		#print ("jump: ", name)
 	return next_state
 
 # What happens each process tick in this state?
