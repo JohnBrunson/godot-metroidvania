@@ -20,7 +20,6 @@ func handle_input( _event : InputEvent ) -> PlayerState:
 # What happens each process tick in this state?
 func process ( _delta: float ) -> PlayerState:
 	if player.direction.x != 0: 
-		#print ("Running!")
 		return run
 	return next_state
 

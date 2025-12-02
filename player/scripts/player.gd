@@ -33,6 +33,7 @@ func _physics_process(_delta: float) -> void:
 	velocity.y += gravity * _delta
 	move_and_slide()
 	change_state( current_state.physics_process(_delta))
+
 	pass
 
 func initialize_states() -> void:
@@ -51,7 +52,7 @@ func initialize_states() -> void:
 		
 		change_state( current_state )
 		current_state.enter()
-		$Label.text = current_state.name 
+#		$Label.text = current_state.name 
 	#set first state
 	pass
 	print (states)
@@ -66,7 +67,7 @@ func change_state( new_state : PlayerState ) -> void:
 	if current_state:
 		current_state.exit()
 	# Then set the new state
-	states.push_back(new_state)
+	states.push_front(new_state)
 	current_state.enter()
 	# Cleanup - Keep only the last three actions.
 	states.resize( 3 )
